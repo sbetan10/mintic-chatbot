@@ -1,0 +1,125 @@
+package com.example.agent.contants;
+
+public class Promt {
+
+    public final static String databaseSchema = "\n"
+            + "CREATE TABLE `contratos_secop_v2` (\n"
+            + "  `socrata_id` varchar(200) NOT NULL,\n"
+            + "  `socrata_version` text,\n"
+            + "  `socrata_created_at` timestamp NULL DEFAULT NULL,\n"
+            + "  `socrata_updated_at` timestamp NULL DEFAULT NULL,\n"
+            + "  `nombre_entidad` text NOT NULL,\n"
+            + "  `nit_entidad` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci "
+            + "DEFAULT NULL,\n"
+            + "  `departamento` text,\n"
+            + "  `ciudad` text,\n"
+            + "  `localizacion` text,\n"
+            + "  `orden` text,\n"
+            + "  `sector` text,\n"
+            + "  `rama` text,\n"
+            + "  `entidad_centralizada` tinyint(1) DEFAULT NULL,\n"
+            + "  `proceso_de_compra` varchar(200) CHARACTER SET utf8mb4 COLLATE "
+            + "utf8mb4_0900_ai_ci DEFAULT NULL,\n"
+            + "  `id_contrato` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT "
+            + "NULL,\n"
+            + "  `referencia_del_contrato` varchar(500) CHARACTER SET utf8mb4 COLLATE "
+            + "utf8mb4_0900_ai_ci DEFAULT NULL,\n"
+            + "  `estado_contrato` text,\n"
+            + "  `codigo_de_categoria_principal` varchar(200) CHARACTER SET utf8mb4 COLLATE "
+            + "utf8mb4_0900_ai_ci DEFAULT NULL,\n"
+            + "  `descripcion_del_proceso` text,\n"
+            + "  `tipo_de_contrato` text,\n"
+            + "  `modalidad_de_contratacion` text,\n"
+            + "  `justificacion_modalidad_de` text,\n"
+            + "  `condiciones_de_entrega` text,\n"
+            + "  `tipodocproveedor` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci"
+            + " DEFAULT NULL,\n"
+            + "  `documento_proveedor` varchar(200) CHARACTER SET utf8mb4 COLLATE "
+            + "utf8mb4_0900_ai_ci DEFAULT NULL,\n"
+            + "  `proveedor_adjudicado` text,\n"
+            + "  `es_grupo` tinyint(1) DEFAULT NULL,\n"
+            + "  `es_pyme` tinyint(1) DEFAULT NULL,\n"
+            + "  `habilita_pago_adelantado` tinyint(1) DEFAULT NULL,\n"
+            + "  `liquidaci_n` tinyint(1) DEFAULT NULL,\n"
+            + "  `obligaci_n_ambiental` tinyint(1) DEFAULT NULL,\n"
+            + "  `obligaciones_postconsumo` tinyint(1) DEFAULT NULL,\n"
+            + "  `reversion` tinyint(1) DEFAULT NULL,\n"
+            + "  `origen_de_los_recursos` text,\n"
+            + "  `destino_gasto` text,\n"
+            + "  `valor_del_contrato` decimal(18,2) DEFAULT NULL,\n"
+            + "  `valor_de_pago_adelantado` decimal(18,2) DEFAULT NULL,\n"
+            + "  `valor_facturado` decimal(18,2) DEFAULT NULL,\n"
+            + "  `valor_pendiente_de_pago` decimal(30,2) DEFAULT NULL,\n"
+            + "  `valor_pagado` decimal(18,2) DEFAULT NULL,\n"
+            + "  `valor_amortizado` decimal(18,2) DEFAULT NULL,\n"
+            + "  `valor_pendiente_de_ejecucion` decimal(18,2) DEFAULT NULL,\n"
+            + "  `saldo_cdp` decimal(20,2) DEFAULT NULL,\n"
+            + "  `saldo_vigencia` decimal(18,2) DEFAULT NULL,\n"
+            + "  `estado_bpin` text,\n"
+            + "  `codigo_bpin` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci "
+            + "DEFAULT NULL,\n"
+            + "  `anno_bpin` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci "
+            + "DEFAULT NULL,\n"
+            + "  `espostconflicto` tinyint(1) DEFAULT NULL,\n"
+            + "  `dias_adicionados` int DEFAULT NULL,\n"
+            + "  `puntos_del_acuerdo` text,\n"
+            + "  `pilares_del_acuerdo` text,\n"
+            + "  `url_proceso` text,\n"
+            + "  `codigo_entidad` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci "
+            + "DEFAULT NULL,\n"
+            + "  `codigo_proveedor` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci"
+            + " DEFAULT NULL,\n"
+            + "  `objeto_del_contrato` text,\n"
+            + "  `duraci_n_del_contrato` text,\n"
+            + "  `nombre_del_banco` text,\n"
+            + "  `tipo_de_cuenta` text,\n"
+            + "  `numero_de_cuenta` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci"
+            + " DEFAULT NULL,\n"
+            + "  `nombre_representante_legal` text,\n"
+            + "  `nacionalidad_representante_legal` varchar(200) CHARACTER SET utf8mb4 COLLATE "
+            + "utf8mb4_0900_ai_ci DEFAULT NULL,\n"
+            + "  `domicilio_representante_legal` text,\n"
+            + "  `tipo_de_identificacion_representante_legal` text,\n"
+            + "  `identificacion_representante_legal` varchar(200) CHARACTER SET utf8mb4 COLLATE "
+            + "utf8mb4_0900_ai_ci DEFAULT NULL,\n"
+            + "  `genero_representante_legal` text,\n"
+            + "  `nombre_ordenador_del_gasto` text,\n"
+            + "  `tipo_de_documento_ordenador_del_gasto` text,\n"
+            + "  `numero_de_documento_ordenador_del_gasto` varchar(200) CHARACTER SET utf8mb4 "
+            + "COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,\n"
+            + "  `nombre_supervisor` text,\n"
+            + "  `tipo_de_documento_supervisor` text,\n"
+            + "  `numero_de_documento_supervisor` varchar(200) CHARACTER SET utf8mb4 COLLATE "
+            + "utf8mb4_0900_ai_ci DEFAULT NULL,\n"
+            + "  `nombre_ordenador_de_pago` text,\n"
+            + "  `tipo_de_documento_ordenador_de_pago` text,\n"
+            + "  `numero_de_documento_ordenador_de_pago` varchar(200) CHARACTER SET utf8mb4 "
+            + "COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,\n"
+            + "  `el_contrato_puede_ser_prorrogado` tinyint(1) DEFAULT NULL,\n"
+            + "  `documentos_tipo` tinyint(1) DEFAULT NULL,\n"
+            + "  `descripcion_documentos_tipo` text,\n"
+            + "  `valor_pendiente_de` decimal(18,2) DEFAULT NULL,\n"
+            + "  PRIMARY KEY (`socrata_id`),\n"
+            + "  KEY `idx_contratos_secop_nit_entidad` (`nit_entidad`),\n"
+            + "  KEY `idx_contratos_secop_id_contrato` (`id_contrato`)\n"
+            + ")";
+
+    public final static String urlDashboard = "https://an-lisis-inteligente-caja-de-retiro-de-las-fuerza-594146387446.us-west1.run.app/";
+
+    public final static String defaultSystemPrompt = String.format("""
+            Eres un sofisticado agente de texto a SQL y reportero de datos.
+            Tu tarea es responder las preguntas de los usuarios sobre la base de datos.
+            
+            1. Esquema de la base de datos: Usa el DDL a continuación para comprender la estructura de la base de datos.
+            --- DDL ---
+            %s
+            --- DDL ---
+            2. Uso de la herramienta: Si la pregunta del usuario requiere información de la base de datos, DEBES llamar a la herramienta 'runSqlQueryTool' para obtener los datos necesarios.
+            
+            3. Generación de SQL: Genera únicamente consultas SELECT seguras. NO generes sentencias INSERT, UPDATE ni DELETE.
+            
+            4. Informe final: Tras recibir los resultados de la consulta de la herramienta, DEBES procesar los datos y generar un informe completo, profesional y en lenguaje natural que responda directamente a la pregunta original del usuario.
+            
+            5. **SIEMPRE** debes incluir en el informe final la recomendacion de visitar el dashboard interactivo para un análisis más profundo con la siguiente URL: %s
+            """, databaseSchema, urlDashboard);
+}
