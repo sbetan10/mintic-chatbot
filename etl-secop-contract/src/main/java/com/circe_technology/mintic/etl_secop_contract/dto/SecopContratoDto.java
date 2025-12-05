@@ -6,7 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
+
+import jakarta.persistence.Column;
 
 /**
  * Data Transfer Object (DTO) used for deserializing the JSON response from the SECON API.
@@ -20,6 +25,10 @@ public record SecopContratoDto(
         @JsonProperty(":version") String socrataVersion,
         @JsonProperty(":created_at") Instant socrataCreatedAt,
         @JsonProperty(":updated_at") Instant socrataUpdatedAt,
+
+        @JsonProperty("fecha_de_firma") String fechaFirma,
+        @JsonProperty("fecha_de_inicio_del_contrato") String fechaInicioDelContrato,
+        @JsonProperty("fecha_de_fin_del_contrato") String fechaFinDelContrato,
 
         // Entity Information
         @JsonProperty("nombre_entidad") String nombreEntidad,
@@ -130,6 +139,9 @@ public record SecopContratoDto(
 
     /** Maps the DTO fields to the ContratoSecop Entity. */
     public ContratoSecop toEntity() {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
+
         ContratoSecop entity = new ContratoSecop();
 
         // --- Socrata Internal Fields ---
@@ -137,6 +149,22 @@ public record SecopContratoDto(
         entity.setSocrataVersion(socrataVersion);
         entity.setSocrataCreatedAt(socrataCreatedAt);
         entity.setSocrataUpdatedAt(socrataUpdatedAt);
+
+        if (fechaFirma != null) {
+            entity.setFechaFirma(
+                    LocalDateTime.parse(fechaFirma, formatter).toInstant(ZoneOffset.UTC));
+        }
+
+        if (fechaInicioDelContrato != null) {
+            entity.setFechaInicioDelContrato(
+                    LocalDateTime.parse(fechaInicioDelContrato, formatter).toInstant(
+                            ZoneOffset.UTC));
+        }
+
+        if (fechaFinDelContrato != null) {
+            entity.setFechaFinDelContrato(
+                    LocalDateTime.parse(fechaFinDelContrato, formatter).toInstant(ZoneOffset.UTC));
+        }
 
         // --- Entity Information ---
         entity.setNombreEntidad(nombreEntidad);

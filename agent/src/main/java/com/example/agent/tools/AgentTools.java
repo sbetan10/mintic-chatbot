@@ -50,7 +50,7 @@ public class AgentTools {
 
             for (Map<String, Object> row : results) {
                 String rowString = row.values().stream()
-                        .map(Object::toString)
+                        .map(o -> o != null ? o.toString():"")
                         .collect(Collectors.joining(", "));
                 csvBuilder.append(rowString).append("\n");
             }

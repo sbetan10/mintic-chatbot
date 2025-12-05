@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 import reactor.core.publisher.Flux;
 
 @RequestMapping("/api/chat")
@@ -17,6 +19,7 @@ import reactor.core.publisher.Flux;
 public class ChatController {
     @Autowired
     private ChatService chatService;
+    private Random random = new Random();
 
     @GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<ChunkResponseDTO> streamChat(
@@ -27,6 +30,6 @@ public class ChatController {
 
     @GetMapping("/generate-chat-id")
     public String chat() {
-        return String.valueOf(Math.random());
+        return String.valueOf(random.nextInt(1000));
     }
 }

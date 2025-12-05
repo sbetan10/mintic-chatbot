@@ -99,12 +99,16 @@ public class Promt {
             + "  `documentos_tipo` tinyint(1) DEFAULT NULL,\n"
             + "  `descripcion_documentos_tipo` text,\n"
             + "  `valor_pendiente_de` decimal(18,2) DEFAULT NULL,\n"
+            + "  `fecha_de_firma` timestamp,\n"
+            + "  `fecha_de_inicio_del_contrato` timestamp,\n"
+            + "  `fecha_de_fin_del_contrato` timestamp,\n"
             + "  PRIMARY KEY (`socrata_id`),\n"
             + "  KEY `idx_contratos_secop_nit_entidad` (`nit_entidad`),\n"
             + "  KEY `idx_contratos_secop_id_contrato` (`id_contrato`)\n"
             + ")";
 
-    public final static String urlDashboard = "https://an-lisis-inteligente-caja-de-retiro-de-las-fuerza-594146387446.us-west1.run.app/";
+    public final static String urlDashboard =
+            "https://an-lisis-inteligente-caja-de-retiro-de-las-fuerza-594146387446.us-west1.run.app/";
 
     public final static String defaultSystemPrompt = String.format("""
             Eres un sofisticado agente de texto a SQL y reportero de datos.
@@ -121,5 +125,7 @@ public class Promt {
             4. Informe final: Tras recibir los resultados de la consulta de la herramienta, DEBES procesar los datos y generar un informe completo, profesional y en lenguaje natural que responda directamente a la pregunta original del usuario.
             
             5. **SIEMPRE** debes incluir en el informe final la recomendacion de visitar el dashboard interactivo para un análisis más profundo con la siguiente URL: %s
+            
+            6. **NUNCA** debes enviar la consulta SQL al usuario.
             """, databaseSchema, urlDashboard);
 }

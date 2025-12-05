@@ -39,6 +39,12 @@ public class ContratoSecop {
     private Instant socrataUpdatedAt;
 
     // --- Entity Information ---
+    @Column(name = "fecha_de_firma")
+    private Instant fechaFirma;
+    @Column(name = "fecha_de_inicio_del_contrato")
+    private Instant fechaInicioDelContrato;
+    @Column(name = "fecha_de_fin_del_contrato")
+    private Instant fechaFinDelContrato;
 
     /** Name of the contracting entity (NOT NULL). */
     @Column(name = "nombre_entidad", nullable = false)
